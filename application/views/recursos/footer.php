@@ -27,14 +27,11 @@
         .frase { font-size: 12px; color: black; font-weight: bold; margin-bottom: 10px; text-align: justify; line-height: 20px; margin-bottom: 0; }
         #acc_cookies, #acc_cookies2 { color: white; border-radius: 0; padding: 15px 20px 15px 20px; font-size: 14px; width: 100%; height: 100%; background-color: #7800a7; border-color: #7800a7; }
         #acc_cookies2 { display: none; }
-        #footer-mob{display: none;}
         .large-modal{width: 70%; max-width: 70%;}
         .espacamento-icone{margin: 5%;}
         
         /* XX-Small devices (300px and up) */ 
         @media ( min-width: 299px ) and ( max-width: 398px ){
-            #footer-pc{display: none;}
-            #footer-mob{display: block;}
             .large-modal{width: 95%; max-width: 95%;}
             footer{
                 font-size: 40px!important;
@@ -50,8 +47,6 @@
         }
         /* X-Small devices (iPhone and others mobiles, 400px and up) */ 
         @media ( min-width: 399px ) and ( max-width: 574px ){
-            #footer-pc{display: none;}
-            #footer-mob{display: block;}
             .large-modal{width: 95%; max-width: 95%;}
             footer{
                 font-size: 40px!important;
@@ -68,8 +63,6 @@
         }
         /* Small devices (landscape phones, 576px and up) */ 
         @media ( min-width: 575px ) and ( max-width: 766px ){
-            #footer-pc{display: none;}
-            #footer-mob{display: block;}
             .large-modal{width: 95%; max-width: 95%;}
             footer{
                 font-size: 40px!important;
@@ -86,8 +79,6 @@
         /* Medium devices (tablets, 768px and up) */ 
         @media ( min-width: 767px ) and ( max-width: 990px ){
             <?php $tablet = 1; ?>
-            #footer-pc{display: none;}
-            #footer-mob{display: block;}
             .large-modal{width: 95%; max-width: 95%;}
             footer{
                 font-size: 40px!important;
@@ -106,8 +97,6 @@
         /* Large devices (desktops, 992px and up) */ 
         @media ( min-width: 991px ) and ( max-width: 1198px ){
             <?php $tablet = 1; ?>
-            #footer-pc{display: none;}
-            #footer-mob{display: block;}
             .large-modal{width: 95%; max-width: 95%;}
             footer{
                 font-size: 40px!important;
@@ -136,13 +125,11 @@
         
         footer {
           width: 100%;
-          font-size: 100px;
           background: var(--base-color);
         }
         
         .social-footer{
             font-size: 25px;
-            position: absolute;
             color: white;
         }
         
@@ -158,7 +145,7 @@
             padding: 25px 0;
             font-size: 15px;
             border-top: 1px solid rgba(256, 256, 256, .1);
-}
+        }
         
         #back-top{
             background: #EC9706;/*afd4fa*/
@@ -269,24 +256,13 @@
         .select2{
             width: 100%!important;
         }
-    </style>
 
-    <!--<div class="row" id="div_cookies" style="display: none">-->
-    <!--    <div class="cookie-pc">-->
-    <!--        <div class="cookie-10">-->
-    <!--            <p class="frase">Usamos cookies para melhorar a sua experiência em nossa plataforma. Ao continuar navegando, você concorda com a nossa <a style="color: red; cursor: pointer" onclick="showPrivacidade()">Política de Privacidade</a>.</p>-->
-    <!--        </div>-->
-    <!--        <div class="cookie-2">-->
-    <!--            <button type="button" id="acc_cookies" class="btn header-btn">Continuar e Fechar</button>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--    <div class="cookie-mob">-->
-    <!--        <div class="cookie-12">-->
-    <!--            <p class="frase">Usamos cookies para melhorar a sua experiência em nossa plataforma. Ao continuar navegando, você concorda com a nossa <a style="color: red; cursor: pointer" onclick="showPrivacidade()">Política de Privacidade</a>.</p>-->
-    <!--            <button type="button" id="acc_cookies2" class="btn header-btn">Continuar</button>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
+        .foto-modal {
+            width: auto;
+            height: 130px;
+            border-radius: 7%;
+        }
+    </style>
 
     <div class="row new-cookie" id="new-cookie" style="display: none">
         <div class="cookie-pc col-md-12">
@@ -315,79 +291,79 @@
     
     <footer <?php if($mobile_view == 1){ ?>style="margin-bottom: -5%;"<?php } ?>>
         <!-- Footer Start-->
-        <div id="footer-pc" class="bg-black" style="width: 100%; padding-top: 5%;"><!--ec9706-->
-            <!--<div class="row" style="width: 100%; height: 157px;">-->
-                
-                <!--<hr style= "width: 53%; background-color: white; position: relative; bottom: 60px; left: 23%;">-->
-            <!--</div>-->
+        <div id="footer-pc" class="bg-black" style="width: 100%; padding-top: 5%;">
             <div class="row">
-                <div class="col-md-2 text-center">
-                    <div class="row">
-                        <a href="<?php echo base_url() ?>" style="position: relative; top: -52px;">
-                            <img src="<?php echo base_url('imagens/site/logo.png') ?>" style="width: 60%; margin-bottom: 15px; margin-left: 18%;">
-                        </a>
-                    </div>
-                    <div class="row" style="position: relative; top: -30%;">
-                        <div class="col-md-4">
-                            <a href="https://www.facebook.com//?ref=bookmarks" target="_blank">
-                                <i class="social-footer fab fa-facebook" aria-hidden="true" style="color: #ec9706;"></i>
-                            </a>
-                            <?php //if(isset($facebook)){ ?>
-                                <!--<a href="<?php echo $facebook ?>" target="_blank">-->
-                                <!--    <i class="social-footer fab fa-facebook-square" aria-hidden="true"></i>-->
-                                <!--</a>-->
-                            <?php //} ?>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="https://www.instagram.com//?hl=pt-br" target="_blank">
-                                <i class="social-footer fab fa-instagram" aria-hidden="true" style="color: #ec9706;"></i>
-                            </a>
-                            <?php //if(isset($instagram)){ ?>
-                                <!--<a href="<?php echo $instagram ?>" target="_blank">-->
-                                <!--    <i class="social-footer fab fa-instagram" aria-hidden="true"></i>-->
-                                <!--</a>-->
-                            <?php //} ?>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="#" target="_blank">
-                                <i class="social-footer fab fa-youtube" aria-hidden="true" style="color: #ec9706;"></i>
+                <div class="col-md-3 col-lg-2 text-center my-4 my-md-2">
+                    <div class="row h-100">
+                        <div class="mx-auto col-10 col-md-12 h-75 my-auto">
+                            <a href="<?php echo base_url() ?>">
+                                <img class="img-fluid" src="<?php echo base_url('imagens/site/logo.png') ?>">
                             </a>
                         </div>
+                        <div class="d-flex justify-content-between w-100  h-25 my-auto">
+                            <div class="col-md-4">
+                                <?php if(isset($facebook)){ ?>
+                                    <a href="<?php echo $facebook ?>" target="_blank">
+                                    <i class="social-footer fab fa-facebook-square" aria-hidden="true"></i>
+                                    </a>
+                                <?php } ?>
+                            </div>
+                            <div class="col-md-4">
+                                <?php if(isset($instagram)){ ?>
+                                    <a href="<?php echo $instagram ?>" target="_blank">
+                                    <i class="social-footer fab fa-instagram" aria-hidden="true"></i>
+                                    </a>
+                                <?php } ?>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="#" target="_blank">
+                                    <i class="social-footer fab fa-youtube" aria-hidden="true" style="color: #ec9706;"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="endereco-ipad" style="">
+                <div class="col-md-5 col-lg-4 my-3 my-md-2">
+                    <div class="endereco-ipad text-center text-md-left">
                         <ul>
-                            <li style="color: white; font-size: 14px; list-style-type: none; font-weight:bold; padding-bottom: 7px;">Informações
-                            </li>
-                            <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;"><i class="fa fa-phone-alt text-primary me-2" style="color: #ec9706 !important;"></i> (34) 3322-6953
-                            </li>
-                            <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;"><i class="fas fa-map-marker-alt text-primary me-2" style="color: #ec9706 !important;"></i>&nbsp Rua. Aluísio de Melo Teixeira, Uberaba - MG
-                            </li>
-                            <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;"><i class="fas fa-envelope text-primary me-2" style="color: #ec9706 !important;"></i>&nbsp nsolucoes@soluti.com.br
-                            </li>
+                            <li style="color: white; font-size: 14px; list-style-type: none; font-weight:bold; padding-bottom: 7px;">
+                                Informações
+                            </li>                            
+                            <?php if(isset($telefone)){ ?>
+                                <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;">
+                                    <i class="fa fa-phone-alt text-primary me-2" style="color: #ec9706 !important;"></i>
+                                    &nbsp <?=  mascararNumero($telefone, 'telefone') ?>
+                                </li>
+                            <?php } ?>
+                            <?php if(isset($endereco)){ ?>
+                                <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;">
+                                    <i class="fas fa-map-marker-alt text-primary me-2" style="color: #ec9706 !important;"></i>
+                                    &nbsp <?=  $endereco ?>
+                                </li>
+                            <?php } ?>
+                            <?php if(isset($email)){ ?>
+                                <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;">
+                                    <i class="fas fa-envelope text-primary me-2" style="color: #ec9706 !important;"></i>
+                                    &nbsp <?=  $email ?>
+                                </li>
+                            <?php } ?>
                         </ul>
-                        <?php //if(isset($endereco)){ ?>
-                            <!--<p class="p-footer"><?php //echo $endereco ?></p></a>-->
-                        <?php //} ?>
-                        <?php //if(isset($email)){ ?>
-                            <!--<p class="p-footer"><?php echo $email ?></p>-->
-                        <?php //} ?>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4 col-lg-6 m2-2 my-md-2">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div style="">
+                        <div class="col-6">
+                            <div class="text-center text-md-left">
                                 <ul>
                                     <li style="color: white; font-size: 14px; list-style-type: none; font-weight:bold; padding-bottom: 7px;">Afiliados</li>
-                                    <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;"><a style="color: white" href="https://datacom.nsolucoes.digital/entrarAfiliado">Login</a></li>
-                                    <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;"><a style="color: white" href="https://datacom.nsolucoes.digital/cadastroAfiliado">Cadastro</a></li>
+                                    <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;"><a style="color: white" href="<?= base_url('entrarAfiliado'); ?>">Login</a></li>
+                                    <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;"><a style="color: white" href="<?= base_url('cadastroAfiliado'); ?>">Cadastro</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div style="">
+                        <div class="col-6">
+                            <div class="text-center text-md-left">
                                 <ul>
                                     <li style="color: white; font-size: 14px; list-style-type: none; font-weight:bold; padding-bottom: 7px;">Sobre</li>
                                     <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;"><a style="color: white; cursor: pointer;" data-toggle="modal" data-target="#nossaloja">Nossa Loja</a></li>
@@ -407,83 +383,12 @@
                             <p style="color: white; font-size: 11px;">© Imperio Cachos, todos os direitos reservados. </p>
 							
                         </div>
-                        <div class="col-md-4 text-end mb-3 mb-md-0" style="text-align: right; padding-right: 2%;">
-							<p style="color: white; font-size: 11px;">Desenvolvido por <a style="color: white; margin-right: 15%;" href="https://www.nsolucoes.digital/">N Soluções</a></p>
+                        <div class="col-md-4 mb-3 mb-md-0 pr-md-4 text-center text-md-right">
+							<p style="color: white; font-size: 11px;">Desenvolvido por <a style="color: white;  <?= $mobile_view == 1 ?'': 'margin-right: 15%' ?>" href="https://www.nsolucoes.digital/">N Soluções</a></p>
                         </div>
                     </div>
             </div>
         </div>
-        
-    <?php if($mobile_view == 1){ ?>
-        <!-- Footer mobile -->
-        <div id="footer-mob" class="row w-100  text-center mx-auto" style="background: var(--base-color); margin: 0%; background: -webkit-linear-gradient(top, #082b3d, var(--base-color), #0f1f46, #234256); overflow-x: hidden;"><!--b37000-->
-            <div>
-                <div class="text-center form-group div-logo" style="padding-top: 10%">
-                    <h3 style="color: white; font-size: 30px; list-style-type: none; font-weight:500; padding-bottom: 7px;">
-                        DataCom
-                    </h3>
-                </div>
-                
-                <div class="text-center form-group div-social" style="">
-                    <a href="https://www.facebook.com/Datacomnotebook/?ref=bookmarks" class="espacamento-icone" target="_blank">
-                        <i class="social-footer fab fa-facebook" aria-hidden="true" style="color: #EC9706; position: relative !important"></i>
-                    </a>
-                    
-                    <a href="https://www.instagram.com/datacomnotebook/?hl=pt-br" class="espacamento-icone" target="_blank">
-                        <i class="social-footer fab fa-instagram" aria-hidden="true" style="color: #EC9706; position: relative !important"></i>
-                    </a>
-                    
-                    <a href="#" class="espacamento-icone" target="_blank">
-                        <i class="social-footer fab fa-youtube" aria-hidden="true" style="color: #EC9706; position: relative !important"></i>
-                    </a>
-                    <!--<a href="#" class="espacamento-icone" target="_blank">-->
-                    <!--    <i class="social-footer fab fa-twitter" aria-hidden="true" style="color: #EC9706; position: relative !important"></i>-->
-                    <!--</a>-->
-                </div>
-                
-                <hr style="border-top: 1px solid rgba(256, 256, 256, .1)">
-                
-                <div class="contato-div-ipad text-center form-group" style="">
-                        <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;"><i class="fa fa-phone-alt text-primary me-2" style="color: #EC9706!important;"></i> (34) 3322-6953<!--#afd4fa-->
-                        </li>
-                        <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;"><i class="fas fa-map-marker-alt text-primary me-2" style="color: #EC9706!important;"></i>&nbsp Av. Elías Cruvinel, 705 - Boa Vista, <br>Uberaba - MG
-                        </li>
-                        <li style="color: white; font-size: 14px; list-style-type: none; padding-bottom: 7px;"><i class="fas fa-envelope text-primary me-2" style="color: #EC9706!important;"></i>&nbsp atendimento@datacominformatica.com.br
-                        </li>
-                </div>
-                
-                <div class="text-center" style="margin-right: 6%;">
-                    <img src="<?php echo base_url('imagens/site/formaspagamento.png') ?>" class="formas-pagamento-ipad" style="width: 99%; text-align: center; z-index: 101; margin: -15% 4% 0% 4%;">
-                </div>
-                
-                <div class="text-center form-group mx-auto" style="display: flex;">
-                    <div style="width: 50%;">
-                            <li style="color: white; font-size: 12px; list-style-type: none; font-weight:bold; padding-bottom: 7px;">Afiliados</li>
-                            <li style="color: white; font-size: 12px; list-style-type: none; padding-bottom: 7px;"><a href="https://datacom.nsolucoes.digital/entrarAfiliado">Login</a></li>
-                            <li style="color: white; font-size: 12px; list-style-type: none; padding-bottom: 7px;"><a href="https://datacom.nsolucoes.digital/cadastroAfiliado">Cadastro</a></li>
-                     
-                    </div>
-                    <div style="width: 50%;">
-                            <li style="color: white; font-size: 12px; list-style-type: none; font-weight:bold; padding-bottom: 7px;">Categoria 2</li>
-                            <li style="color: white; font-size: 12px; list-style-type: none; padding-bottom: 7px;">ITEM 1</li>
-                            <li style="color: white; font-size: 12px; list-style-type: none; padding-bottom: 7px;">ITEM 2</li>
-                    </div>
-                </div>
-                <hr style="border-top: 1px solid rgba(256, 256, 256, .1); width: 107%;">
-                <div class="<?php if($tablet == 1){ ?>mb-3<?php } ?>">
-                    <div style="font-size: 12px; color:grey;" class="row">
-                        <div class="<?php if($tablet == 1){ ?> col-md-6 text-center mb-3 mb-md-0<?php }else{ ?> col-md-4 text-center mb-3 mb-md-0 <?php } ?>">
-                            <p style="color: white; font-size: 11px;">© DataCom, todos os direitos reservados.</p>
-    						
-                        </div>
-                        <div class="<?php if($tablet == 1){ ?> col-md-6 text-center mb-3 mb-md-0<?php }else{ ?> col-md-4 text-center mb-3 mb-md-0 <?php } ?>" style="text-align: right; padding-right: 2%;">
-    						<p style="color: white; font-size: 11px;">Desenvolvido por <a style="color: white;" href="https://www.nsolucoes.digital/">N Soluções</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php } ?>
         <!-- Footer End-->
     </footer>
     
@@ -563,16 +468,6 @@
             </div>
         </div>
     </div>
-    
-    <style>
-        .foto-modal {
-            width: auto;
-            height: 130px;
-            border-radius: 7%;
-        }
-            
-    </style>
-    
     
     <div class="modal" tabindex="-1" role="dialog" id="namidia" style="z-index: 1041">
         <div class="modal-dialog modal-dialog-centered large-modal" role="document">
@@ -712,6 +607,7 @@
     <div id="back-top">
         <a title="Go to Top" href="#"><i class="fa fa-arrow-up" style="line-height: 43px; font-size: 23px;"></i></a>
     </div>
+
     <div class="modal fade" id="logarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

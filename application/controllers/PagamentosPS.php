@@ -360,7 +360,7 @@ class PagamentosPS extends CI_Controller {
             
             $this->email->initialize($config);
             
-            $this->email->from($dados['emailPS'], "Cachaça Cheia de Manias");
+            $this->email->from($dados['emailPS'], 'Teste');
             $this->email->to($a['cliente_email']);
             //$this->email->cc();
             //$this->email->bcc();

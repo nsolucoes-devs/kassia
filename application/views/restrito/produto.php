@@ -128,13 +128,37 @@
                         <div class="row" style="background-color: white; margin-left: 5px; margin-right: 5px">
                             <div class="col-md-12">
                                 
-                                <ul class="nav nav-tabs">
-                                  <li class="tab-li active" id="li_dados" data-target="dados" data-fonte="li_dados"><a>Dados</a></li>
-                                  <li class="tab-li" id="li_detalhes" data-target="detalhes" data-fonte="li_detalhes"><a>Detalhes</a></li>
-                                  <li class="tab-li" id="li_imagens" data-target="imagens" data-fonte="li_imagens"><a>Imagens</a></li>
-                                  <li class="tab-li" id="li_promocoes" data-target="promocoes" data-fonte="li_promocoes"><a>Promoções</a></li>
-                                  <li class="tab-li" id="li_ligacoes" data-target="ligacoes" data-fonte="li_ligacoes"><a>Ligações</a></li>
-                                  <li class="tab-li" id="li_opcoes" data-target="opcoes" data-fonte="li_opcoes"><a>Opções</a></li>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link tab-li active" id="li_dados" data-target="dados" aria-controls="dados" data-fonte="li_dados" aria-selected="true">
+                                            Dados
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link tab-li" id="li_detalhes" data-target="detalhes" aria-controls="detalhes" data-fonte="li_detalhes" aria-selected="true">
+                                            Detalhes
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link tab-li" id="li_imagens" data-target="imagens" aria-controls="imagens" data-fonte="li_imagens" aria-selected="true">
+                                            Imagens
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link tab-li" id="li_promocoes" data-target="promocoes" aria-controls="promocoes" data-fonte="li_promocoes" aria-selected="true">
+                                            Promoções
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link tab-li" id="li_ligacoes" data-target="ligacoes" aria-controls="ligacoes" data-fonte="li_ligacoes" aria-selected="true">
+                                            Ligações
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link tab-li" id="li_opcoes" data-target="opcoes" aria-controls="opcoes" data-fonte="li_opcoes" aria-selected="true">
+                                            Opções
+                                        </a>
+                                    </li>
                                 </ul>
                                 
                                 

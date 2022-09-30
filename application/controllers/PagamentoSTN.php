@@ -2,17 +2,10 @@
 
 class PagamentoSTN extends CI_Controller {
 
-    public function keys(){
-        /*$dados = array(
-            'api'       => 'ak_test_TG8KhV0zZ5sTQC6tQSCymTwL04ujwA', //Chave SandBox   
-            'crypto'    => 'ek_test_yWbRAJoS2KXAE79Rrtchj7mGwv249Y', //Chave SandBox   ek_test_nf7NcuifqjdFXROSmDw121Ii6ckVhl
-        );*/
-        
+    public function keys(){        
         $dados = array(
-            'api'       => 'ak_live_EJZgDtqsuh0JLP71SFh75Gg6uDP0J5', // Chave V4
-            'crypto'    => 'ek_live_hem64ynpl6EyHMhPndnu1Dl7uhQNMA', // Chave V4 
-            // 'api'       => 'sk_qMVG9R1CnEs3BNaE',   // Chave V5
-            // 'crypto'    => 'pk_r548az8cGFry2EpG',   // Chave V5
+            'api'       => 'ak_live_ezmSM5YxAXbd6BmMDn1iuhZLs6rU3M', // Chave V4
+            'crypto'    => 'ek_live_HNawzX906vFTcS6EYuc0DVUKQD2cCy', // Chave V4 
         );
         return $dados;
         
@@ -326,7 +319,7 @@ class PagamentoSTN extends CI_Controller {
 
         $this->email->initialize($config);
         
-        $this->email->from($gestoremail['email_user'], 'DataCom Informática');
+        $this->email->from($gestoremail['email_user'], $site['nome_empresa']);
         $this->email->to(strtolower($cliente['cliente_email'])); 
         $this->email->subject($site['nome_empresa']);
         $this->email->message($this->sendemail->mailbody($data)); 
@@ -410,7 +403,7 @@ class PagamentoSTN extends CI_Controller {
 
         $this->email->initialize($config);
 
-        $this->email->from($gestoremail['email_user'], 'Espaço Cachos');
+        $this->email->from($gestoremail['email_user'], $site['nome_empresa']);
         $this->email->to(strtolower($afiliado['afiliado_email']));
         $this->email->subject('Você fez uma nova venda');
         $this->email->message($this->sendemail->mailbody4($data));

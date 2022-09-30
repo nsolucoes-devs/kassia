@@ -133,13 +133,12 @@ class Inicio extends Public_Controller {
 	    $dadosHeader['idpag']               = 1;
 		$dadosHeader['telefonedecontato']   = $site['whats'];
 		$dadosHeader['home']                = 1;
+
+		$destaques = $produtos = $produtos2 = $vejatbm = [];
 		
 		$produtos_array  = $this->servicos->getAllSimplificado();
 		$cont            = 0;
 		$produtos        = [];
-		
-		$destaques = $produtos = $produtos2 = $vejatbm = [];
-		
 		foreach(array_reverse($produtos_array) as $p){
 		    if($cont < 12){
     		    $valor_promocao         = null;
@@ -154,7 +153,7 @@ class Inicio extends Public_Controller {
         		        'produto_resumo'        => $p['produto_resumo'],
         		        'produto_subtitulo'     => $p['produto_subtitulo'],
         		        'produto_descontoAtivo' => $p['produto_descontoAtivo'],
-        		        'produto_desconto     ' => $p['produto_desconto'],
+        		        'produto_desconto' => $p['produto_desconto'],
         		        'produto_qtd_parcela'   => $p['produto_qtd_parcela'],
             		    'produto_parcelamento'  => $p['produto_parcelamento'],
         		    );
@@ -166,59 +165,14 @@ class Inicio extends Public_Controller {
     		    }
 		    }
 		}
-		
-		$cont = 0;
-		
-		foreach($produtos_array as $p2){
-		    if($cont < 6){
-    		    $valor_promocao         = null;
-    		    $porcentagem_promocao   = null;
-    		    
-    		    //$produto_promocao       = $this->produtoPromocao($p2);
-    		    //$valor_promocao         = $produto_promocao['valor'];
-    		    //$porcentagem_promocao   = $produto_promocao['porcentagem'];
-    		    
-    		    if($p2){
-    		        $produtos2[$cont] = array(
-        		        'produto_id'            => $p2['produto_id'],
-        		        'produto_nome'          => $p2['produto_nome'],
-        		        'produto_valor'         => $p2['produto_valor'],
-        		        'produto_imagem'        => $p2['produto_imagem1'],
-        		        'produto_resumo'        => $p2['produto_resumo'],
-        		        'produto_subtitulo'     => $p2['produto_subtitulo'],
-        		        'produto_descontoAtivo' => $p2['produto_descontoAtivo'],
-        		        'produto_desconto     ' => $p2['produto_desconto'],
-        		        'produto_qtd_parcela'   => $p2['produto_qtd_parcela'],
-            		    'produto_parcelamento'  => $p2['produto_parcelamento'],
-        		        //'produto_promocao'      => $valor_promocao,
-        		        //'produto_porcentagem'   => $porcentagem_promocao,
-        		    );
-        		    
-        		    
-        		    if($p2['produto_descontoAtivo'] == 1) {
-                            $valornovo = $this->produtoDesconto($p2);
-                            $produtos2[$cont]['produto_promocao'] = $valornovo;
-                    } else {
-                        $produtos2[$cont]['produto_promocao'] = null;
-                    }
-        		    $cont++;
-    		    }
-		    }
-		}
-		
-		
+
 		$produtos_destaque  = $this->servicos->getAllDestaques();
 		$cont            = 0;
-		$destaques        = [];
-		
+		$destaques        = [];		
 		foreach($produtos_destaque as $d){
 		    if($cont < 20){
     		    $valor_promocao         = null;
     		    $porcentagem_promocao   = null;
-    		    
-    		    //$produto_promocao       = $this->produtoPromocao($d);
-    		    //$valor_promocao         = $produto_promocao['valor'];
-    		    //$porcentagem_promocao   = $produto_promocao['porcentagem'];
     		    
     		    if($d){
     		        $destaques[$cont] = array(
@@ -228,7 +182,7 @@ class Inicio extends Public_Controller {
         		        'produto_imagem'        => $d['produto_imagem1'],
         		        'produto_subtitulo'     => $d['produto_subtitulo'],
         		        'produto_descontoAtivo' => $d['produto_descontoAtivo'],
-        		        'produto_desconto     ' => $d['produto_desconto'],
+        		        'produto_desconto' 		=> $d['produto_desconto'],
         		        'produto_qtd_parcela'   => $d['produto_qtd_parcela'],
             		    'produto_parcelamento'  => $d['produto_parcelamento'],
         		        //'produto_promocao'      => $valor_promocao,
@@ -246,63 +200,36 @@ class Inicio extends Public_Controller {
     		    }
 		    }
 		}
-
-		
-		$dadosFooter = array(
-		    'facebook'              => $site['facebook'],
-		    'instagram'             => $site['instagram'],
-		    'linkedin'              => $site['linkedin'],
-		    'endereco'              => $site['endereco'],
-		    'email'                 => $site['email'],
-		    'whats'                 => $site['whats'],
-		    'telefone'              => $site['telefone'],
-		    'nome_empresa'          => $site['nome_empresa'],
-		    'cnpj'                  => $site['cnpj'],
-		    'sobre_loja'            => $site['sobre_loja'],
-		    'politica_entrega'      => $site['politica_entrega'],
-		    'politica_privacidade'  => $site['politica_privacidade'],
-		    'termos'                => $site['termos'],
-		);
-		
-		$data['departamentos']  = $this->departamentos->getAllCarousel();
- 		// $dadosHeader['departamentos']  = $this->departamentos->getAll();
 		
 		$ramdon = $this->servicos->getRandom();
-		
-		
+		$cont            = 0;
+		$vejatbm        = [];
 		foreach($ramdon as $ram){
-		    if($ram){
-		        $vejatbm[$cont] = array(
-					'produto_id'            => $d['produto_id'],
-					'produto_nome'          => $d['produto_nome'],
-					'produto_valor'         => $d['produto_valor'],
-					'produto_imagem'        => $d['produto_imagem1'],
-					'produto_subtitulo'     => $d['produto_subtitulo'],
-					'produto_descontoAtivo' => $d['produto_descontoAtivo'],
-					'produto_desconto     ' => $d['produto_desconto'],
-					'produto_qtd_parcela'   => $d['produto_qtd_parcela'],
-					'produto_parcelamento'  => $d['produto_parcelamento'],
-					//'produto_promocao'      => $valor_promocao,
-					//'produto_porcentagem'   => $porcentagem_promocao,
-    		    );
-    		    
-    		    if($ram['produto_descontoAtivo'] == 1) {
-                        $valornovo = $this->produtoDesconto($ram);
-                        $vejatbm[$cont]['produto_promocao'] = $valornovo;
-                        
-                } else {
-                    $vejatbm[$cont]['produto_promocao'] = null;
-                }
-    		    $cont++;
-		    }
+			$vejatbm[$cont] = array(
+				'produto_id'            => $ram['produto_id'],
+				'produto_nome'          => $ram['produto_nome'],
+				'produto_valor'         => $ram['produto_valor'],
+				'produto_imagem'        => $ram['produto_imagem1'],
+				'produto_subtitulo'     => $ram['produto_subtitulo'],
+				'produto_descontoAtivo' => $ram['produto_descontoAtivo'],
+				'produto_desconto' 		=> $ram['produto_desconto'],
+				'produto_qtd_parcela'   => $ram['produto_qtd_parcela'],
+				'produto_parcelamento'  => $ram['produto_parcelamento'],
+			);
+			
+			if($ram['produto_descontoAtivo'] == 1) {
+					$valornovo = $this->produtoDesconto($ram);
+					$vejatbm[$cont]['produto_promocao'] = $valornovo;
+					
+			} else {
+				$vejatbm[$cont]['produto_promocao'] = null;
+			}
+			$cont++;
 	    }
 		
 		$perguntas = $this->perguntas->getAll();
 		
-		$accordionM = [];
-		$accordion1 = [];
-		$accordion2 = [];
-		
+		$accordionM = $accordion1 = $accordion2 = [];		
 		for ($aux = 0;$aux < count($perguntas) ;$aux++ ) {
 		    
 		    if ($perguntas[$aux]['pergunta_titulo']) {
@@ -319,7 +246,7 @@ class Inicio extends Public_Controller {
 		    }
 		}
 		
-		
+		$data['departamentos']  = $this->departamentos->getAllCarousel();
 		$data['accordion1']     = $accordion1;
 		$data['accordion2']     = $accordion2;
 		$data['accordionM']     = $accordionM;
@@ -333,6 +260,22 @@ class Inicio extends Public_Controller {
 		
 		
 		$dadosHeader['header']  = $this->departamentos->menuDepts();
+
+		$dadosFooter = array(
+		    'facebook'              => $site['facebook'],
+		    'instagram'             => $site['instagram'],
+		    'linkedin'              => $site['linkedin'],
+		    'endereco'              => $site['endereco'],
+		    'email'                 => $site['email'],
+		    'whats'                 => $site['whats'],
+		    'telefone'              => $site['telefone'],
+		    'nome_empresa'          => $site['nome_empresa'],
+		    'cnpj'                  => $site['cnpj'],
+		    'sobre_loja'            => $site['sobre_loja'],
+		    'politica_entrega'      => $site['politica_entrega'],
+		    'politica_privacidade'  => $site['politica_privacidade'],
+		    'termos'                => $site['termos'],
+		);
        
 	    $this->load->view('recursos/header', $dadosHeader);
 	    $this->load->view('index', $data);

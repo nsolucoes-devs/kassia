@@ -104,17 +104,15 @@ class Servico extends CI_Controller {
         $valornovo['porcentagem'] = $this->carrinhomodel->desconto($produto['produto_id']);
         return $valornovo;*/
         
-        
         $dataatual = date('Y-m-d');
         $valornovo = null;
-       // print_r($produto);
         
         if($produto['produto_descontoAtivo'] == 1) {
-            if($produto['prodouto_dataInicial'] != "0000-00-00" && $produto['prodouto_dataInicial'] != null && $produto['produto_dataInicial'] != " ") {
-                if($produto['prodouto_dataInicial'] <= $dataatual){
-                    if($produto['prodouto_dataFinal'] != "0000-00-00" && $produto['prodouto_dataFinal'] != null && $produto['produto_dataFinal'] != " "){
-                        if($produto['prodouto_dataFinal'] >= $dataatual){
-                            if($produto['prodouto_desconto'] > 0) {
+            if($produto['produto_dataInicial'] != "0000-00-00" && $produto['produto_dataInicial'] != null && $produto['produto_dataInicial'] != " ") {
+                if($produto['produto_dataInicial'] <= $dataatual){
+                    if($produto['produto_dataFinal'] != "0000-00-00" && $produto['produto_dataFinal'] != null && $produto['produto_dataFinal'] != " "){
+                        if($produto['produto_dataFinal'] >= $dataatual){
+                            if($produto['produto_desconto'] > 0) {
                                 $valor          = $produto['produto_valor'];
                                 $porcentagem    = $produto['produto_desconto'];
                                 $desconto = ($valor * $porcentagem) / 100;

@@ -132,7 +132,7 @@
         					<div class="p-t-1">
         					    <div class="row">
         					        <div class="text-left col-md-6">
-        					            <a style="font-size: 11px; color: black; font-weight:400; cursor: pointer;" href="https://datacom.nsolucoes.digital/cadastroAfiliado">Não tenho cadastro</a>
+        					            <a style="font-size: 11px; color: black; font-weight:400; cursor: pointer;" href="<?= base_url('cadastroAfiliado') ?>">Não tenho cadastro</a>
         						    </div>
         					        <div class="text-right col-md-6" >
         					            <a style="font-size: 11px; color: black; font-weight:400; cursor: pointer;" href="#" data-toggle="modal" data-target="#esqueciSenhaModal">Esqueci a senha</a>
@@ -177,7 +177,7 @@
         					<div class="text-right p-t-1">
         					   <div class="row">
         					        <div class="text-left" style="width: 50%">
-        					            <a style="font-size: 11px; color: black; font-weight:400; cursor: pointer;" href="https://datacom.nsolucoes.digital/cadastroAfiliado">Não tenho cadastro</a>
+        					            <a style="font-size: 11px; color: black; font-weight:400; cursor: pointer;" href="<?= base_url('cadastroAfiliado') ?>">Não tenho cadastro</a>
         						    </div>
         					        <div class="text-right col-md-6" style="width: 50%">
         					            <a style="font-size: 11px; color: black; font-weight:400; cursor: pointer;" href="#" data-toggle="modal" data-target="#esqueciSenhaModal">Esqueci a senha</a>

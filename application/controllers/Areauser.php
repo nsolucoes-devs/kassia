@@ -413,7 +413,7 @@ class Areauser extends Public_Controller {
 
         $this->email->initialize($config);
         
-        $this->email->from($gestoremail['email_user'], 'DataCom Informática');
+        $this->email->from($gestoremail['email_user'], $site['nome_empresa']);
         $this->email->to($email); 
         $this->email->subject($assunto);
         $this->email->message($mailbody);  

@@ -350,7 +350,7 @@
         /*.header-sticky.sticky-bar { background: #3a0b0c; }*/
         .search-icon-div{background-color: white;border-radius: 0;border-top-right-radius: 3px;border-bottom-right-radius: 0px;}
         .search-icon-i{background: white;cursor: text;border-radius: 0;border-top-right-radius: 10px;border-bottom-right-radius: 10px;}
-        .btn-primary{font-weight: 700;color: white;background-color: var(--base-color);border-color: var(--base-color);box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;}
+        .btn-primary{font-weight: 700;color: white;background-color: var(--base-color);border-color: var(--base-color);}
         .btn-primary:hover{background-color: white;border-color: var(--base-color);color: black;}
         .btn-primary:active{background-color: white!important;border-color: var(--base-color)!important;color: var(--base-color)!important;}
         .mobile-logo{width: 150px;height: auto;z-index: 1; margin: 10% 10% 15%;}
@@ -479,12 +479,12 @@
     
          /*X-Large devices (large desktops, 1200px and up) */  /*Tela notebook*/
         @media ( min-width: 1199px ) and ( max-width: 1398px ) {
-            .logo-img { width: 225px; position: relative; top: 24px; margin-left: 35px;}
+            .logo-img { width: 300px; position: relative; top: 15px; margin-left: 35px;}
         }
         
         /* XX-Large devices (larger desktops, 1400px and up) */
         @media ( min-width: 1399px ) {
-            .logo-img { width: 225px; position: relative; top: 24px; margin-left: 35px;}
+            .logo-img { width: 300px; position: relative; top: 15px; margin-left: 35px;}
             .position-logado {
                 margin-left: 5%;
             }
@@ -569,7 +569,7 @@
                 <!-- div do menu -->
                     <div class="col-md-2 text-center">
                         <a href="<?php echo base_url('') ?>">
-                            <img class="logo-img" style="z-index: 40;"src="<?php echo base_url('imagens/site/logo.png') ?>"alt="logo" title="DataCom Notebook e Informática">
+                            <img class="logo-img" style="z-index: 40;" src="<?php echo base_url('imagens/site/logo.png') ?>"alt="logo" title="logo">
                         </a>
                     </div>
                     
@@ -651,7 +651,7 @@
                         <div class="d-block mobile_menu">
                             <div class="row" style="margin-bottom: -5%;">
                                 <div class="col-6 text-center">
-                                    <a class="mobile-link-logo-pos" href="<?php echo base_url('') ?>"><img class="mobile-logo" src="<?php echo base_url('imagens/site/logo.png') ?>" alt="logo" title="DataCom Notebook e Informática"></a>
+                                    <a class="mobile-link-logo-pos" href="<?php echo base_url('') ?>"><img class="mobile-logo" src="<?php echo base_url('imagens/site/logo.png') ?>" alt="logo" title="Logo site"></a>
                                 </div>
                                 
                                 <div class="col-6 text-right usuario-mobile" style="position: relative; right: 0; top: 0; padding: 5% 10%;">

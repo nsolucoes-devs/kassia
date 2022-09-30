@@ -224,56 +224,33 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
         background: url(<?php echo base_url() ?>imagens/site/parallax.png) no-repeat;
     }
 
-    #novidades .btn {
-        color: #EC9706;
-        border-color: #EC9706;
-        background-color: white;
-    }
-
-    #novidades .btn:hover {
-        color: white;
-        border-color: white;
-        background-color: #EC9706;
-    }
-
-    #veja-tbm .btn {
-        color: #EC9706;
-        border-color: #EC9706;
-        background-color: white;
-        height: 16%;
-    }
-
-    #veja-tbm .btn:hover {
-        color: white;
-        border-color: white;
-        background-color: #EC9706;
-    }
-
     p {
         font-family: Poppins, sans-serif !important;
     }
 
     .servico-titulo {
         text-align: center;
-        color: #828282;
+        color: hsl(0 0% 30%);
+        font-weight: 700;
+        font-size: 1.09rem;
         display: -webkit-box;
         overflow: hidden;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         word-break: break-word;
-        font-size: 0.9rem;
         margin-top: 2%;
     }
 
     .servico-titulo2 {
         text-align: center;
-        color: #828282;
+        color: hsl(0 0% 30%);
+        font-weight: 700;
+        font-size: 1.2rem;
         display: -webkit-box;
         overflow: hidden;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         word-break: break-word;
-        font-size: 0.9rem;
         margin-top: 2%;
     }
 
@@ -885,12 +862,32 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
     .carousel-caption {
         bottom: 82px !important;
     }
+
+    #novidades img.img-fluid:hover, #veja-tbm img.img-fluid:hover {
+        transition-duration: 0.6s;
+    }
+    #novidades img.img-fluid:hover, #veja-tbm img.img-fluid:hover {
+        z-index: 15;
+        transform: scale(1.2);
+    }
+
+    .test-btn:hover .b-default {
+        display: none;
+    }
+
+    .test-btn .b-hover {
+        display: none;
+    }
+
+    .test-btn:hover .b-hover {
+        display: flex;
+    }
 </style>
 
 <link media rel="stylesheet" href="<?php echo base_url('resources/css/'); ?>style.css">
 
 
-<main style="position: relative; background: white;">
+<main class="bg-light" style="position: relative;">
     <div class="section-content">
         <div class="row" style="<?php if ($mobile_view == 0) { ?> <?php } else { ?> margin-top: -10px!important <?php } ?>">
 
@@ -1013,63 +1010,59 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
             <?php } ?>
 
             <!-- Produtos novos -->
-            <div id="novidades" class="section-content container" style="<?php if ($mobile_view == 0) {
-                                                                                echo "margin-bottom: 20px;";
-                                                                            } ?> background: #ffffff; width: 80%;">
-                <div class="row" style="margin-top:2%">
+            <div id="novidades" class="section-content container-sm col-12 col-md-10 mb-5 mb-md-0">
+                <div class="row mx-auto col-12 col-md-11 mt-4">
                     <?php
                     if ($produtos) {
                         foreach ($produtos as $p) {
-                            $aux_nome = explode(' ', $p['produto_nome'], 2) ?>
-                            <div class="col-md-4 col-xs-6 col-sm-4 col-lg-3 form-group">
-                                <div class="card zoom card-relacionados" style="border-radius: 7px; height: 100%;">
-                                    <div class="card-body" style="border-bottom: 7px solid #EC9706; border-radius: 7px;">
-                                        <a href="<?php echo base_url('e9b8ed001f1726b0385dcfec2dbe2ea1/') . $p['produto_id'] ?>">
-                                            <div class="row">
-                                                <div class="justify-content-center col-md-12 d-flex" style="height: 12rem">
-                                                    <img class="img-fluid" src="<?php echo base_url($p['produto_imagem']) ?>">
-                                                </div>
-
-                                                <div class="col-md-12 text-center">
-                                                    <p class="text-center stars">
-                                                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                        <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                    </p>
-
-                                                    <div class="text-center" style="height: 3.5rem">
-                                                        <p class="servico-titulo" style="margin-top: 7%; font-weight: 600; color: var(--base-color);"><?= ucfirst(mb_strtolower($p['produto_nome'])) ?></p>
-                                                    </div>
-                                                    <?php if ($p['produto_promocao']) { ?>
-                                                        <div class="col-12 col-md-12 text-center">
-                                                            <p class="text-muted p-0 m-0"><strike>R$ <?php echo number_format($p['produto_valor'], 2, ',', '.') ?></strike></p>
-                                                            <button class="btn btn-secondary">
-                                                                R$ <?php echo number_format($p['produto_promocao'], 2, ',', '.') ?>
-                                                            </button>
-                                                            <?php if ($p['produto_parcelamento'] == 0) { ?>
-                                                                <p class="text-center text-muted">
-                                                                    <?= $p['produto_qtd_parcela'] ?>
-                                                                </p>
-                                                            <?php } ?>
-                                                        </div>
-                                                    <?php } else { ?>
-                                                        <div class="col-12 col-md-12 text-center mt-4">
-                                                            <button class="btn btn-secondary">
-                                                                R$ <?php echo number_format($p['produto_valor'], 2, ',', '.') ?>
-                                                            </button>
-                                                            <?php if ($p['produto_parcelamento'] == 0) { ?>
-                                                                <p class="text-center text-muted">
-                                                                    <?= $p['produto_qtd_parcela'] ?>
-                                                                </p>
-                                                            <?php } ?>
-                                                        </div>
-                                                    <?php } ?>
+                            $aux_nome = explode(' ', $p['produto_nome'], 2);  ?>
+                            <div class="col-md-4 col-6 col-sm-4 col-xl-3 col-lg-3 form-group mb-5">
+                                <div class="card zoom card-relacionados h-100" style="border-radius: 10px;">
+                                    <?php if ($p['produto_desconto']) { ?>
+                                        <div class="position-absolute w-100" style="z-index: 10">                                    
+                                            <div class="d-flex justify-content-end w-100">
+                                                <div class="d-flex justify-content-center align-items-center mr-5" style="background: var(--base-color);width: 45px;height: 45px;border-radius: 0 0 10px 10px;">
+                                                    <span class="px-4 text-light"><?= '-'. $p['produto_desconto'] .'%' ?></span>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    <?php } ?>
+                                    <a href="<?php echo base_url('e9b8ed001f1726b0385dcfec2dbe2ea1/') . $p['produto_id'] ?>">
+                                        <div class="card-body" style="border-radius: 7px;">
+                                            <div class="row">
+                                                <div class="border-bottom d-flex justify-content-center mx-auto pb-3" style="height: 12rem; width: 80%;">
+                                                    <img class="img-fluid rounded" src="<?php echo base_url($p['produto_imagem']) ?>">
+                                                </div>
+
+                                                <div class="col-md-12 text-center text-dark">
+
+                                                    <div class="my-2" style="height: 3.5rem">
+                                                        <p class="servico-titulo"><?= ucfirst(mb_strtolower($p['produto_nome'])) ?></p>
+                                                    </div>
+
+                                                    <div class="w-100 text-left">
+                                                        <p class="text-muted p-0 m-0">
+                                                        <?= $p['produto_promocao'] ? '<del>'. formatarMoedaReal($p['produto_valor'], true) .'</del>' : 'ㅤ' ?>
+                                                        </p>
+                                                        
+                                                        <h3 class="">
+                                                            R$ <?php echo number_format(!$p['produto_promocao'] ? $p['produto_valor'] : $p['produto_promocao'] , 2, ',', '.') ?>
+                                                        </h3>
+                                                        <?php if ($p['produto_parcelamento'] == 0) { ?>
+                                                            <p class="text-center text-muted">
+                                                                <?= $p['produto_qtd_parcela'] ?>
+                                                            </p>
+                                                        <?php } ?>
+
+                                                        <div class="btn-group b-hover w-100" role="group" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;">
+                                                            <button type="button" class="btn btn-primary w-25"><i class="fa fa-cart-plus"></i></button>
+                                                            <button type="button" class="btn btn-dark w-75">Comprar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         <?php }
@@ -1188,7 +1181,9 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
                                                         <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
                                                         <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
                                                     </p>
-                                                    <p class="text-center prod-departamento servico-titulo2"><span style="font-size: 13px;"><b style="color: var(--base-color);"><?= ucfirst(mb_strtolower($destaque['produto_nome'])) ?></b></span></p>
+                                                    <p class="text-center prod-departamento servico-titulo2">
+                                                        <?= ucfirst(mb_strtolower($destaque['produto_nome'])) ?>
+                                                    </p>
                                                     <?php if ($destaque['produto_promocao']) { ?>
                                                         <div class="col-12 col-md-12 text-center div-preco">
                                                             <strike>R$ <?php echo number_format($destaque['produto_valor'], 2, ',', '.') ?></strike><br>
@@ -1237,7 +1232,7 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
             <?php } ?>
 
             <!-- Veja também -->
-            <section id="veja-tbm" class="container" style="margin-top: 7%; width: 80% ">
+            <section id="veja-tbm" class="container-sm col-12 col-md-10 pt-5">
                 <?php if ($vejatbm) { ?>
                     <div class="bbb_viewed_title_container container">
                         <h3 class="bbb_viewed_title">Veja Também</h3>
@@ -1246,90 +1241,55 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
                         <?php $cont = 1;
                         foreach ($vejatbm as $vj) { ?>
                             <?php $aux_nome = explode(' ', $vj['produto_nome'], 2) ?>
-                            <?php if ($mobile_view == 0) { ?>
-                                <div class="col-sm-2 form-group" style="<?php if ($mobile_view == 1) { ?> width: 60%; <?php if ($cont % 2 == 0) {
-                                                                                                                        echo 'margin-right: -10%;';
-                                                                                                                    } else {
-                                                                                                                        echo 'margin-left: -10%;';
-                                                                                                                    } ?><?php } ?>">
-                                    <div class="card zoom card-relacionados" style="border-radius: 7px;">
-                                        <div class="card-body" style="height: 300px; border-bottom: 7px solid #EC9706; border-radius: 7px; padding: 10% 0 0 0;">
-                                            <a href="<?php echo base_url('e9b8ed001f1726b0385dcfec2dbe2ea1/') . $vj['produto_id'] ?>">
-                                                <div class="row">
-                                                    <div class="col-md-12" style="padding: 0 1.25rem;">
-                                                        <img class="d-block mx-auto limite-largura-prod2-img" style="height: 100px; width: auto; max-width: 105px;" src="<?php echo base_url($vj['produto_imagem']) ?>">
+                            <div class="col-md-4 col-6 col-sm-6 col-lg-3 col-xl-2 form-group mb-4">
+                                <div class="card zoom card-relacionados h-100" style="border-radius: 10px;">
+                                    <?php if ($vj['produto_desconto']) { ?>
+                                        <div class="position-absolute w-100" style="z-index: 10">                                    
+                                            <div class="d-flex justify-content-end w-100">
+                                                <div class="d-flex justify-content-center align-items-center mr-5" style="background: var(--base-color);width: 45px;height: 45px;border-radius: 0 0 10px 10px;">
+                                                    <span class="px-4 text-light"><?= '-'. $vj['produto_desconto'] .'%' ?></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                    <a href="<?php echo base_url('e9b8ed001f1726b0385dcfec2dbe2ea1/') . $vj['produto_id'] ?>">
+                                        <div class="card-body" style="border-radius: 7px;">
+                                            <div class="row">
+                                                <div class="border-bottom d-flex justify-content-center mx-auto pb-3" style="height: 12rem; width: 80%;">
+                                                    <img class="img-fluid rounded" src="<?php echo base_url($vj['produto_imagem']) ?>">
+                                                </div>
+
+                                                <div class="col-md-12 text-center text-dark">
+
+                                                    <div class="my-2" style="height: 3.5rem">
+                                                        <p class="servico-titulo"><?= ucfirst(mb_strtolower($vj['produto_nome'])) ?></p>
                                                     </div>
 
-                                                    <div class="col-md-12 text-center">
-                                                        <p class="text-center stars" style="padding: 0 1.25rem;">
-                                                            <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                            <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                            <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                            <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                            <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
+                                                    <div class="w-100 text-left">
+                                                        <p class="text-muted p-0 m-0">
+                                                        <?= $vj['produto_promocao'] ? '<del>'. formatarMoedaReal($vj['produto_valor'], true) .'</del>' : 'ㅤ' ?>
                                                         </p>
-                                                        <p class="text-center prod-departamento servico-titulo2" style="padding: 0 1.25rem;"><span style="font-size: 13px;"><b style="color: var(--base-color);"><?= ucfirst(mb_strtolower($vj['produto_nome'])) ?></b></span></p>
-                                                        <?php if ($vj['produto_promocao']) { ?>
-                                                            <strike class="old-preco" style="font-size: 13px">R$ <?php echo number_format($vj['produto_valor'], 2, ',', '.') ?></strike><br>
-                                                            <p class="text-center btn btn-primary prod-preco"><b class="prod-preco-txt" style="font-size: 14px; position: relative; bottom: 8px;">R$ <?php echo number_format($vj['produto_promocao'], 2, ',', '.') ?></b></p>
-                                                        <?php } else { ?>
-                                                            <strike hidden class="old-preco" style="font-size: 13px">R$ 9999,99</strike><br>
-                                                            <p class="text-center btn btn-primary prod-preco"><b class="prod-preco-txt" style="font-size: 14px; position: relative; bottom: 8px;">R$ <?php echo number_format($vj['produto_valor'], 2, ',', '.') ?></b></p>
-                                                        <?php }
-                                                        $cont++; ?>
-                                                        <!-- <button type="button" class="btn-main"><i style="font-size: 16px" class="fa fa-cart-plus" aria-hidden="true"></i> COMPRAR</button> -->
+                                                        
+                                                        <h3 class="">
+                                                            R$ <?php echo number_format(!$vj['produto_promocao'] ? $vj['produto_valor'] : $vj['produto_promocao'] , 2, ',', '.') ?>
+                                                        </h3>
+                                                        <?php if ($vj['produto_parcelamento'] == 0) { ?>
+                                                            <p class="text-center text-muted">
+                                                                <?= $vj['produto_qtd_parcela'] ?>
+                                                            </p>
+                                                        <?php } ?>
+
+                                                        <div class="btn-group b-hover w-100" role="group" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;">
+                                                            <button type="button" class="btn btn-primary w-25"><i class="fa fa-cart-plus"></i></button>
+                                                            <button type="button" class="btn btn-dark w-75">Comprar</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
-                            <?php } else { ?>
-                                <div class="col-md-4 form-group margin-card-ipad" style="width: 60%; <?php if ($cont % 2 == 0) {
-                                                                                                            echo 'margin-right: -10%;';
-                                                                                                        } else {
-                                                                                                            echo 'margin-left: -10%;';
-                                                                                                        } ?>">
-                                    <div class="card zoom card-relacionados" style="border-radius: 7px;">
-                                        <div class="card-body" style="height: 300px; border-bottom: 7px solid #EC9706; border-radius: 7px;">
-                                            <a href="<?php echo base_url('e9b8ed001f1726b0385dcfec2dbe2ea1/') . $vj['produto_id'] ?>">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <img class="d-block mx-auto limite-largura-prod2-img" style="height: 100px; width: auto; max-width: 105px;" src="<?php echo base_url($vj['produto_imagem']) ?>">
-                                                    </div>
-
-                                                    <div class="col-md-12 text-center">
-                                                        <p class="text-center stars">
-                                                            <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                            <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                            <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                            <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                            <i style="color: gold" class="fa fa-star" aria-hidden="true"></i>
-                                                        </p>
-                                                        <p class="text-center prod-departamento servico-titulo2"><span style="font-size: 13px;"><b style="color: var(--base-color);"><?= ucfirst(mb_strtolower($vj['produto_nome'])) ?></b></span></p>
-                                                        <?php if ($vj['produto_promocao']) { ?>
-                                                            <div class="text-center div-preco">
-                                                                <strike>R$ <?php echo number_format($vj['produto_valor'], 2, ',', '.') ?></strike><br>
-                                                                <p class="text-center btn btn-primary prod-preco"><b class="prod-preco-txt" style="font-size: 14px; position: relative; bottom: 8px;">R$ <?php echo number_format($vj['produto_promocao'], 2, ',', '.') ?></b></p>
-                                                                <p class="text-center prod-departamento" style="margin-top: -5%;"><span style="font-size: 13px; color: #828282;"><?= $vj['produto_qtd_parcela'] ?></span></p>
-                                                            </div>
-                                                        <?php } else { ?>
-                                                            <strike class="old-preco" hidden>text</strike><br>
-                                                            <p class="text-center btn btn-primary prod-preco"><b class="prod-preco-txt" style="font-size: 14px; position: relative; bottom: 8px;">R$ <?php echo number_format($vj['produto_valor'], 2, ',', '.') ?></b></p>
-                                                            <?php if ($vj['produto_parcelamento'] == 0) { ?>
-                                                                <p class="text-center prod-departamento" style="margin-top: -10%;"><span style="font-size: 13px; color: #828282;"><?= $vj['produto_qtd_parcela'] ?></span></p>
-                                                            <?php } ?>
-                                                        <?php }
-                                                        $cont++; ?>
-                                                        <!-- <button type="button" class="btn-main"><i style="font-size: 16px" class="fa fa-cart-plus" aria-hidden="true"></i> COMPRAR</button> -->
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php } ?>
-
+                            </div>
                         <?php } ?>
                     </div>
                 <?php } ?>

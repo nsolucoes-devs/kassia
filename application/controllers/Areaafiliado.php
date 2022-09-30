@@ -548,31 +548,27 @@ class Areaafiliado extends Public_Controller {
     
     public function novoAfiliadoPublico(){
 
-        //if($_POST['g-recaptcha-response']){
-            $new = array(
-                'afiliado_usuario'      => $this->limpa($_POST['cnpj']),
-                'afiliado_senha'        => md5($_POST['senha']),
-                'afiliado_empresa'      => $_POST['empresa'],
-                'afiliado_codigo'       => md5($_POST['cnpj']),
-                'afiliado_cnpj'         => $this->limpa($_POST['cnpj']),
-                'afiliado_nome'         => $_POST['nome'],
-                'afiliado_email'        => $_POST['email'],
-                'afiliado_telefone'     => $this->limpa($_POST['telefone']),
-                'afiliado_cep'          => $this->limpa($_POST['cep']),
-                'afiliado_rua'          => $_POST['rua'],
-                'afiliado_numero'       => $_POST['numero'],
-                'afiliado_complemento'  => $_POST['complemento'],
-                'afiliado_bairro'       => $_POST['bairro'],
-                'afiliado_cidade'       => $_POST['cidade'],
-                'afiliado_estado'       => $_POST['estado'],
-                'afiliado_banco'        => $_POST['banco'],
-                'afiliado_ativo'        => '0',
-            );
-            $a = $this->afiliados->insert($new);
-            redirect(base_url('painelAfiliado'));
-        // }else{
-        //     redirect(base_url('cadastroAfiliado'));
-        // }
+        $new = array(
+            'afiliado_usuario'      => $this->limpa($_POST['cnpj']),
+            'afiliado_senha'        => md5($_POST['senha']),
+            'afiliado_empresa'      => $_POST['empresa'],
+            'afiliado_codigo'       => md5($_POST['cnpj']),
+            'afiliado_cnpj'         => $this->limpa($_POST['cnpj']),
+            'afiliado_nome'         => $_POST['nome'],
+            'afiliado_email'        => $_POST['email'],
+            'afiliado_telefone'     => $this->limpa($_POST['telefone']),
+            'afiliado_cep'          => $this->limpa($_POST['cep']),
+            'afiliado_rua'          => $_POST['rua'],
+            'afiliado_numero'       => $_POST['numero'],
+            'afiliado_complemento'  => $_POST['complemento'],
+            'afiliado_bairro'       => $_POST['bairro'],
+            'afiliado_cidade'       => $_POST['cidade'],
+            'afiliado_estado'       => $_POST['estado'],
+            'afiliado_banco'        => $_POST['banco'],
+            'afiliado_ativo'        => '0',
+        );
+        $a = $this->afiliados->insert($new);
+        redirect(base_url('painelAfiliado'));
     }
     
     function updateAfiliado(){

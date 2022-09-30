@@ -149,7 +149,7 @@ class SendEmail extends CI_Model {
                                         <img style='height: 80px; width: auto; display: inline; margin-right: 10px' src='".base_url('imagens/site/logo2.png') ."'><br>
                                     </td>
                                     <td style='width: 60%'>
-                                        <h2 style='color: black; margin-bottom: 10px; text-align: left; font-size: 16px;'><b style='font-size: 18px; color: black'>DataCom Notebook e Informática</h2>
+                                        <h2 style='color: black; margin-bottom: 10px; text-align: left; font-size: 16px;'><b style='font-size: 18px; color: black'>Império Cachos</h2>
                                     </td>
                                 </tr>
                             </table>

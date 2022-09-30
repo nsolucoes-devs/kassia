@@ -131,20 +131,16 @@ class Adminprodutos extends MY_Controller {
         
         $produtos_imagens = $this->produtos->get($id);
 
-        echo '<pre>';
-            print_r($_POST);
-        echo '</pre>';
-        
 	    $produto = array(
             'produto_nome'                      => mb_strtoupper(addslashes($_POST['nome'])),
             'produto_subtitulo'                 => mb_strtoupper(addslashes($_POST['modelo'])),
             'produto_codigo'                    => mb_strtoupper(addslashes($_POST['codigo'])),
             'produto_fabricante'                => mb_strtoupper(addslashes($_POST['fabricante'])),
             'produto_valor'                     => $this->limpaValor(addslashes($_POST['valor'])),
-            'produto_promocaoPreco'            => $this->limpaValor(addslashes($_POST['preco_promocao'])),
-            'produto_promocaoAtivo'      => addslashes($_POST['preco_promocao_ativo']),
+            'produto_promocaoPreco'             => $this->limpaValor(addslashes($_POST['preco_promocao'])),
+            // 'produto_promocaoAtivo'             => addslashes($_POST['preco_promocao_ativo']),
             'produto_desconto'                  => addslashes($_POST['desconto']),
-            // 'produto_descontoAtivo'             => addslashes($_POST['desconto_ativo']),
+            'produto_descontoAtivo'             => addslashes($_POST['desconto_ativo']),
             // 'produto_datainicial_promocao'      => addslashes($_POST['datainicial_promocao']),
             // 'produto_datafinal_promocao'        => addslashes($_POST['datafinal_promocao']),
             // 'produto_datafinal_promocao_ativo'  => addslashes($_POST['datafinal_promocao_ativo']),

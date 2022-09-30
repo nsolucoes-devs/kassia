@@ -678,7 +678,7 @@
         function abrirImagem(){
             var img = $('#linkimage').val();
             
-            $('#visualizarImagem').attr('src', 'https://datacom.nsolucoes.digital' + id);
+            $('#visualizarImagem').attr('src', location.protocol + "//" + window.location.hostname + id);
             $('#visuImagem').modal('show');
         }
     </script>
