@@ -117,7 +117,7 @@
             <div class="c-card-header">
                 <div class="row">
                     <div class="col-md-12 text-left">
-                        <h2 style="color: #1b9045;"><b>ADICIONAR PRODUTO</b></h2>
+                        <h2 style="color: #1b9045;"><b>ADICIONAR PRODUTO teste</b></h2>
                     </div>
                 </div>
             </div>
