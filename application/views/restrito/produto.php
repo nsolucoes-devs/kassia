@@ -124,7 +124,7 @@
             <form action="<?php echo base_url('a1f2a0b814a1fecd227400e2b74fb25f');?>" method="post" 
             enctype='multipart/form-data' id="form">
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane active in" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade active in" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row" style="background-color: white; margin-left: 5px; margin-right: 5px">
                             <div class="col-md-12">
                                 
