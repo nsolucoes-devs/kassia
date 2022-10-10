@@ -233,7 +233,7 @@ class Adminprodutos extends MY_Controller {
             'produto_cupom'                     => addslashes($_POST['cupom']),
             'produto_cupomAtivo'               => addslashes($_POST['cupom_ativo']),
             // 'produto_marca_id'                  => addslashes($_POST['marca']),
-            'produto_departamento'             => addslashes($this->montarArray($_POST['departamentos'])),
+            'produto_departamento'             => addslashes($this->montarArray($this->input->post('departamentos'))),
             // 'produto_relacionados'              => $this->montarArray(addslashes($_POST['relacionados'])),
             // 'produto_tamanhos'                  => addslashes($this->montarArray($_POST['tamanhos'])),
             // 'produto_cores'                     => addslashes($this->montarArray($_POST['cores'])),
